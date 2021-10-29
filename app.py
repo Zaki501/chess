@@ -57,7 +57,8 @@ def main():
     # print(find_piece(board))
     # print(board.tolist.index({'C1': 'x'}))
     # print(dir(board))
-    for_loop(board)
+    # for_loop(board)
+    print(board)
 
 
 if __name__ == "__main__":

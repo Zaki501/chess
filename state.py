@@ -14,6 +14,8 @@ def init_board():
     letters = ["A", "B", "C", "D", "E", "F", "G", "H"]
     for i in range(8):
         board[i] = [{(char + str(i + 1)): ""} for char in letters]
+    for idx, item in np.ndenumerate(board):
+        item.update({"index": idx})
     return board
 
 
@@ -22,16 +24,53 @@ def place_piece(board, current_position, new_position):
     # first get the current position
 
 
+def find_piece(board, piece):
+    """find a piece, and return it"""
+    print("LOOPING")
+    for row in board:
+        for position in row:
+            for key, value in position.items():
+                if key == piece:
+                    # print("test")
+                    # item_index = np.where(board == position)
+                    # print(item_index)
+                    print(key, value)
+    return piece
+
+
 def move_piece():
     """find piece, and move it
 
     Is it valid move? if so, is there another piece there? Can that piece be captured?"""
 
 
+def test():
+    # convert an array to list, then back to array
+    a = list(range(4))
+    b = np.asarray(a).reshape((2, 2))
+    # t = np.arange(4)
+    c = b.tolist()
+    print("a", a)
+    print(b)
+    print(c)
+    print(c[1][1])
+
+
+def pieces_on_board(board):
+    """take the pieces out of the board, and display them"""
+
+
 def main():
-    board = init_board()
-    print(board)
-    return board
+    # # narray to list : .tolist()
+    # # list to narray: np.asarray(list, datatype)
+
+    # full_board = init_board()
+    # print(full_board)
+    # # for idx, item in np.ndenumerate(full_board):
+    # #     print(item)
+    # keys = np.fromiter(full_board.keys(), dtype=float)
+    # print(keys)
+    print("main")
 
 
 if __name__ == "__main__":
